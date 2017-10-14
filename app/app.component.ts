@@ -4,13 +4,13 @@ import {Component} from '@angular/core';
     selector:'pm-app',
     template:`<div>
      
-        <h1>THis is MAIN PAGE</h1>
-        <book-app></book-app>
+        <h1>{{pageTitle}}</h1>
+        <pm-product></pm-product>
        
     </div>`
 })
 
 
 export class AppComponent{
-
+    pageTitle:string="Home Page"
 }

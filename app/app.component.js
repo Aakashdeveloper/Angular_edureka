@@ -9,11 +9,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
+        this.pageTitle = "Home Page";
     }
     AppComponent = __decorate([
         core_1.Component({
             selector: 'pm-app',
-            template: "<div>\n     \n        <h1>THis is MAIN PAGE</h1>\n        <book-app></book-app>\n       \n    </div>"
+            template: "<div>\n     \n        <h1>{{pageTitle}}</h1>\n        <pm-product></pm-product>\n       \n    </div>"
         })
     ], AppComponent);
     return AppComponent;
