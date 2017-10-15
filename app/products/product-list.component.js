@@ -22,7 +22,7 @@ var ProductListComponent = /** @class */ (function () {
                 "releaseDate": "March 19, 2016",
                 "description": "Leaf rake with 48-inch wooden handle.",
                 "price": 19.95,
-                "starRating": 3.2,
+                "starRating": 3.5,
                 "imageUrl": "http://openclipart.org/image/300px/svg_to_png/26215/Anonymous_Leaf_Rake.png"
             },
             {
@@ -50,6 +50,9 @@ var ProductListComponent = /** @class */ (function () {
     }
     ProductListComponent.prototype.toggleImage = function () {
         this.showImages = !this.showImages;
+    };
+    ProductListComponent.prototype.ngOnInit = function () {
+        console.log("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<this is init>>>>>>>>>>>>>>>>>>");
     };
     ProductListComponent = __decorate([
         core_1.Component({
