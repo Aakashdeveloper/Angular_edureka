@@ -9,26 +9,34 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
+var http_1 = require("@angular/http");
+var router_1 = require("@angular/router");
 var app_component_1 = require("./app.component");
 var book_component_1 = require("./book.component");
 var product_list_component_1 = require("./products/product-list.component");
 var product_filter_pipe_1 = require("./products/product-filter.pipe");
 var star_component_1 = require("./shared/star.component");
+var product_detail_component_1 = require("./products/product-detail.component");
+var home_component_1 = require("./home/home.component");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
             imports: [
+                http_1.HttpModule,
                 platform_browser_1.BrowserModule,
-                forms_1.FormsModule
+                forms_1.FormsModule,
+                router_1.RouterModule
             ],
             declarations: [
                 app_component_1.AppComponent,
                 book_component_1.BookComponent,
                 star_component_1.StarComponent,
+                home_component_1.HomeComponent,
                 product_list_component_1.ProductListComponent,
-                product_filter_pipe_1.ProductFilterPipe
+                product_filter_pipe_1.ProductFilterPipe,
+                product_detail_component_1.ProductDetailComponent
             ],
             bootstrap: [app_component_1.AppComponent]
         })
