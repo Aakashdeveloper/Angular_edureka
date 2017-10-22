@@ -1,15 +1,23 @@
 import {Component} from '@angular/core';
-import { ProductService } from "./products/product.service";
 
 @Component({
     selector:'pm-app',
-    template:`<div>
-     
-        <h1>{{pageTitle}}</h1>
-        <pm-product></pm-product>
-       
-    </div>`,
-    providers:[ProductService]
+    template:`
+    <div>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <a class="navbar-brand">Edureka</a>
+                <ul class="nav navbar-nav">
+                    <li><a [routerLink]="['/home']">Home</a></li>
+                    <li><a [routerLink]="['/products']">Product</a></li>
+                </ul>
+            </div>
+
+        </nav>
+        <div class="container">
+            <router-outlet></router-outlet>
+        </div>
+    </div>`
 })
 
 

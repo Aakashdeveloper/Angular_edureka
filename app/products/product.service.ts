@@ -9,7 +9,7 @@ import 'rxjs/add/operator/catch';
 
 export class ProductService{
 
-    private _productUrl='http://localhost:3100/api/getProducts';
+    private _productUrl='api/products/products.json';
 
     constructor(private _http:Http){
 

@@ -13,8 +13,12 @@ var http_1 = require("@angular/http");
 var router_1 = require("@angular/router");
 var app_component_1 = require("./app.component");
 var book_component_1 = require("./book.component");
+var product_list_component_1 = require("./products/product-list.component");
+var product_filter_pipe_1 = require("./products/product-filter.pipe");
+var star_component_1 = require("./shared/star.component");
+var product_detail_component_1 = require("./products/product-detail.component");
 var home_component_1 = require("./home/home.component");
-var product_module_1 = require("./products/product.module");
+var product_gaurd_service_1 = require("./products/product-gaurd.service");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -24,8 +28,9 @@ var AppModule = /** @class */ (function () {
                 http_1.HttpModule,
                 platform_browser_1.BrowserModule,
                 forms_1.FormsModule,
-                product_module_1.ProductModule,
                 router_1.RouterModule.forRoot([
+                    { path: 'products', component: product_list_component_1.ProductListComponent },
+                    { path: 'product/:id', canActivate: [product_gaurd_service_1.ProductDetailGuard], component: product_detail_component_1.ProductDetailComponent },
                     { path: 'home', component: home_component_1.HomeComponent },
                     { path: '', redirectTo: 'home', pathMatch: 'full' },
                     { path: '**', redirectTo: 'home', pathMatch: 'full' }
@@ -34,12 +39,17 @@ var AppModule = /** @class */ (function () {
             declarations: [
                 app_component_1.AppComponent,
                 book_component_1.BookComponent,
+                star_component_1.StarComponent,
                 home_component_1.HomeComponent,
+                product_list_component_1.ProductListComponent,
+                product_filter_pipe_1.ProductFilterPipe,
+                product_detail_component_1.ProductDetailComponent
             ],
-            bootstrap: [app_component_1.AppComponent]
+            bootstrap: [app_component_1.AppComponent],
+            providers: [product_gaurd_service_1.ProductDetailGuard]
         })
     ], AppModule);
     return AppModule;
 }());
 exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+//# sourceMappingURL=bk_app.module.js.map

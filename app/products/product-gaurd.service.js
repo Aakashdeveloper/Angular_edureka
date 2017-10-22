@@ -11,27 +11,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
-var ProductDetailComponent = /** @class */ (function () {
-    function ProductDetailComponent(_route, _router) {
-        this._route = _route;
+var ProductDetailGuard = /** @class */ (function () {
+    function ProductDetailGuard(_router) {
         this._router = _router;
-        this.pageTitle = "Product Details";
     }
-    ProductDetailComponent.prototype.ngOnInit = function () {
-        var id = +this._route.snapshot.params['id'];
-        this.pageTitle += ":" + id;
+    ProductDetailGuard.prototype.canActivate = function (route) {
+        var id = +route.url[1].path;
+        if (isNaN(id) || id < 1) {
+            alert('Invalid Id');
+            this._router.navigate(['/products']);
+            return false;
+        }
+        ;
+        return true;
     };
-    ProductDetailComponent.prototype.onBack = function () {
-        this._router.navigate(['/products']);
-    };
-    ProductDetailComponent = __decorate([
-        core_1.Component({
-            templateUrl: 'app/products/product-detail.component.html'
-        }),
-        __metadata("design:paramtypes", [router_1.ActivatedRoute,
-            router_1.Router])
-    ], ProductDetailComponent);
-    return ProductDetailComponent;
+    ProductDetailGuard = __decorate([
+        core_1.Injectable(),
+        __metadata("design:paramtypes", [router_1.Router])
+    ], ProductDetailGuard);
+    return ProductDetailGuard;
 }());
-exports.ProductDetailComponent = ProductDetailComponent;
-//# sourceMappingURL=product-detail.component.js.map
+exports.ProductDetailGuard = ProductDetailGuard;
+//# sourceMappingURL=product-gaurd.service.js.map
